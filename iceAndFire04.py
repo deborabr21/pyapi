@@ -19,6 +19,18 @@ def main():
         got_dj = gotresp.json()
         pprint.pprint(got_dj)
 
+        #allegiances
+        alleges = got_dj["allegiances"]
+        print("Allegiances")
+        for allege in alleges:
+            pprint.pprint(requests.get(allege).json()["name"])
+
+        #Books they apper
+        books=got_dj["books"]
+        print("Books")
+        for book in books:
+            pprint.pprint(requests.get(book).json()["name"])
+
 if __name__ == "__main__":
         main()
 
